@@ -17,7 +17,8 @@ class BreakingNewsView extends HookWidget {
     final scrollController = useScrollController();
 
     useEffect(() {
-      scrollController.addListener(() => _onScrollListener(context, scrollController));
+      scrollController
+          .addListener(() => _onScrollListener(context, scrollController));
       return scrollController.dispose;
     }, [scrollController]);
 
@@ -55,7 +56,8 @@ class BreakingNewsView extends HookWidget {
           return const Center(child: Icon(Ionicons.refresh));
         }
         if (state is RemoteArticlesDone) {
-          return _buildArticle(scrollController, state.articles, state.noMoreData);
+          return _buildArticle(
+              scrollController, state.articles, state.noMoreData);
         }
         return const SizedBox();
       },
@@ -74,7 +76,10 @@ class BreakingNewsView extends HookWidget {
         ...List<Widget>.from(
           articles.map(
             (e) => Builder(
-              builder: (context) => ArticleWidget(
+              builder: (
+                context,
+              ) =>
+                  ArticleWidget(
                 article: e,
                 onArticlePressed: (e) => _onArticlePressed(context, e),
               ),
@@ -96,7 +101,8 @@ class BreakingNewsView extends HookWidget {
     );
   }
 
-  void _onScrollListener(BuildContext context, ScrollController scrollController) {
+  void _onScrollListener(
+      BuildContext context, ScrollController scrollController) {
     final maxScroll = scrollController.position.maxScrollExtent;
     final currentScroll = scrollController.position.pixels;
     final remoteArticleBloc = BlocProvider.of<RemoteArticlesBloc>(context);

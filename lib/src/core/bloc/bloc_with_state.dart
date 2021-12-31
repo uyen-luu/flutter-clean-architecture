@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum BlocProcessState {
@@ -12,10 +14,10 @@ abstract class BlocWithState<E, S> extends Bloc<E, S> {
 
   BlocProcessState get blocProcessState => _state;
 
-  Stream<S> runBlocProcess(Stream<S> Function() process) async* {
+  FutureOr<void> runBlocProcess(FutureOr<void> Function() process) async* {
     if (_state == BlocProcessState.idle) {
       _state = BlocProcessState.busy;
-      yield* process();
+      process();
       _state = BlocProcessState.idle;
     }
   }

@@ -17,7 +17,8 @@ class RemoteArticlesLoading extends RemoteArticlesState {
 }
 
 class RemoteArticlesDone extends RemoteArticlesState {
-  const RemoteArticlesDone(List<Article> article, {bool noMoreData}) : super(articles: article, noMoreData: noMoreData);
+  const RemoteArticlesDone(List<Article> article, {bool noMoreData})
+      : super(articles: article, noMoreData: noMoreData);
 }
 
 class RemoteArticlesError extends RemoteArticlesState {

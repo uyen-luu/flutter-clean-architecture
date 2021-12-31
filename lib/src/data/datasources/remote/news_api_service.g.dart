@@ -29,13 +29,11 @@ class _NewsApiService implements NewsApiService {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/top-headlines',
+    final _result = await _dio.request<Map<String, dynamic>>(
+        '$baseUrl/top-headlines',
         queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
+        options:
+            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra),
         data: _data);
     final value = BreakingNewsResponseModel.fromJson(_result.data);
     final httpResponse = HttpResponse(value, _result);

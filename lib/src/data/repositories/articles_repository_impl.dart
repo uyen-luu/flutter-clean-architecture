@@ -33,8 +33,8 @@ class ArticlesRepositoryImpl implements ArticlesRepository {
         DioError(
           error: httpResponse.response.statusMessage,
           response: httpResponse.response,
-          request: httpResponse.response.request,
-          type: DioErrorType.RESPONSE,
+          requestOptions: httpResponse.response.requestOptions,
+          type: DioErrorType.response,
         ),
       );
     } on DioError catch (e) {
