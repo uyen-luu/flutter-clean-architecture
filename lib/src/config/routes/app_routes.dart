@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/views/breaking_news_view.dart';
 
-class AppRoutes {
+mixin AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case '/':
