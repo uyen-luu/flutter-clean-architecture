@@ -14,10 +14,10 @@ abstract class BlocWithState<E, S> extends Bloc<E, S> {
 
   BlocProcessState get blocProcessState => _state;
 
-  FutureOr<void> runBlocProcess(FutureOr<void> Function() process) async* {
+  FutureOr<void> runBlocProcess(FutureOr<void> Function() process) async {
     if (_state == BlocProcessState.idle) {
       _state = BlocProcessState.busy;
-      process();
+      await process();
       _state = BlocProcessState.idle;
     }
   }

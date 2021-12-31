@@ -25,12 +25,10 @@ class RemoteArticlesBloc
   final List<Article> _articles = [];
   int _page = 1;
   static const int _pageSize = 20;
-  BlocProcessState _state = BlocProcessState.idle;
 
   FutureOr<void> _getBreakingNewsArticle(
       RemoteArticlesEvent event, Emitter<RemoteArticlesState> emit) async {
-    if (_state == BlocProcessState.idle) {
-      _state = BlocProcessState.busy;
+    await runBlocProcess(() async {
       final dataState =
           await _getArticlesUseCase(params: ArticlesRequestParams(page: _page));
 
@@ -45,7 +43,6 @@ class RemoteArticlesBloc
       if (dataState is DataFailed) {
         emit(RemoteArticlesError(dataState.error));
       }
-      _state = BlocProcessState.idle;
-    }
+    });
   }
 }
