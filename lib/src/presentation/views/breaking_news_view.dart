@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../../core/bloc/bloc_with_state.dart';
-import '../../domain/entities/article.dart';
-import '../blocs/remote_articles/remote_articles_bloc.dart';
-import '../widgets/article_widget.dart';
+import 'package:flutter_news_app/src/core/bloc/bloc_with_state.dart';
+import 'package:flutter_news_app/src/domain/entities/article.dart';
+import 'package:flutter_news_app/src/presentation/blocs/remote_articles/remote_articles_bloc.dart';
+import 'package:flutter_news_app/src/presentation/widgets/article_widget.dart';
 
 class BreakingNewsView extends HookWidget {
   const BreakingNewsView({Key key}) : super(key: key);

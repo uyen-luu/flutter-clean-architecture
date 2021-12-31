@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../../core/utils/constants.dart';
-import '../../models/breaking_news_response_model.dart';
+import 'package:flutter_news_app/src/core/utils/constants.dart';
+import 'package:flutter_news_app/src/data/models/breaking_news_response_model.dart';
 
 part 'news_api_service.g.dart';
 

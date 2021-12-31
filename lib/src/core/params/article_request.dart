@@ -1,4 +1,4 @@
-import '../utils/constants.dart';
+import 'package:flutter_news_app/src/core/utils/constants.dart';
 
 class ArticlesRequestParams {
   final String apiKey;
